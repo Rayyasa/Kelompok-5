@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sport Shop</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Card 1 */
+    .popup {
+      width: 85vh;
+      height: 75vh;
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      z-index: 999;
+    }
+
+    .popup-content {
+      color: black;
+    }
+
+    .popup.active {
+      display: block;
+    }
+
+    /* //Card 2 */
+    .pop {
+      width: 85vh;
+      height: 75vh;
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      z-index: 999;
+    }
+
+    .pop-content {
+      color: black;
+    }
+
+    .pop.active {
+      display: block;
+    }
+
+    /* Card 3 */
+    .pop1 {
+      width: 85vh;
+      height: 75vh;
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      z-index: 999;
+    }
+
+    .pop1-content1 {
+      color: black;
+    }
+
+    .pop1.active1 {
+      display: block;
+    }
+
+    /* Card 4 */
+    .pop2 {
+      width: 85vh;
+      height: 75vh;
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      z-index: 999;
+    }
+
+    .pop2-content2 {
+      color: black;
+    }
+
+    .pop2.active2 {
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="font-poppins bg-[#f5f5dc] box-border">
+  <nav class="flex  items-center flex-row py-3 mt-4  justify-evenly" id="nav">
+    <a href="#" class="no-underline text-slate-700 font-bold text-[24px]">SPORT SHOP</a>
+    <div class="flex gap-5">
+      <div class="absolute">
+
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          class="mt-3 ml-2">
+          <path
+            d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
+            stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M22 22L20 20" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <input type="search" placeholder="Search" aria-label="Search"
+        class="block px-[0.375rem] py-[0.70rem] rounded-md active:outline outline-blue-400 focus:shadow-lg pl-12 text-[20px]">
+      <button type="submit"
+        class="font-normal text- text-[#198754] hover:bg-[#198754] hover:text-white py-[0.60rem] px-[0.900rem] rounded-lg outline outline-[#198754]-50">Search</button>
+    </div>
+    <div class="flex-row flex">
+      <a href="#">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          class="inline-block align-top mr-14">
+          <g clip-path="url(#clip0_403_3036)">
+            <path
+              d="M22.713 4.077C22.4317 3.73944 22.0796 3.46795 21.6815 3.28182C21.2835 3.09568 20.8494 2.99946 20.41 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L1 0C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1C0 1.26522 0.105357 1.51957 0.292893 1.70711C0.48043 1.89464 0.734784 2 1 2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.591 14.583C3.73385 15.7998 4.31848 16.9218 5.23391 17.736C6.14934 18.5502 7.33185 19 8.557 19H19C19.2652 19 19.5196 18.8946 19.7071 18.7071C19.8946 18.5196 20 18.2652 20 18C20 17.7348 19.8946 17.4804 19.7071 17.2929C19.5196 17.1054 19.2652 17 19 17H8.557C7.93806 16.9983 7.3348 16.8051 6.82994 16.4471C6.32507 16.089 5.94331 15.5835 5.737 15H17.657C18.8293 15.0001 19.9643 14.5882 20.8638 13.8364C21.7633 13.0846 22.37 12.0407 22.578 10.887L23.363 6.533C23.4414 6.10101 23.4237 5.65707 23.3114 5.23264C23.1991 4.80821 22.9948 4.41368 22.713 4.077ZM21.4 6.178L20.614 10.532C20.4891 11.225 20.1245 11.852 19.5839 12.3032C19.0433 12.7544 18.3612 13.0011 17.657 13H5.419L4.478 5H20.41C20.5569 4.99912 20.7022 5.03062 20.8355 5.09226C20.9689 5.15389 21.087 5.24415 21.1815 5.35661C21.276 5.46907 21.3446 5.60097 21.3824 5.74294C21.4201 5.8849 21.4262 6.03344 21.4 6.178Z"
+              fill="#374957" />
+            <path
+              d="M7.00012 24.0006C8.10469 24.0006 9.00011 23.1052 9.00011 22.0006C9.00011 20.896 8.10469 20.0006 7.00012 20.0006C5.89555 20.0006 5.00012 20.896 5.00012 22.0006C5.00012 23.1052 5.89555 24.0006 7.00012 24.0006Z"
+              fill="#374957" />
+            <path
+              d="M17 24.0006C18.1046 24.0006 19 23.1052 19 22.0006C19 20.896 18.1046 20.0006 17 20.0006C15.8954 20.0006 15 20.896 15 22.0006C15 23.1052 15.8954 24.0006 17 24.0006Z"
+              fill="#374957" />
+          </g>
+          <defs>
+            <clipPath id="clip0_403_3036">
+              <rect width="24" height="24" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </a>
+      Daftar / Masuk
+      <a href="#">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          class="inline-block align-top">
+          <path
+            d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
+            fill="#292D32" />
+          <path
+            d="M12.0002 14.5C6.99016 14.5 2.91016 17.86 2.91016 22C2.91016 22.28 3.13016 22.5 3.41016 22.5H20.5902C20.8702 22.5 21.0902 22.28 21.0902 22C21.0902 17.86 17.0102 14.5 12.0002 14.5Z"
+            fill="#292D32" />
+        </svg></a>
+    </div>
+    </div>
+  </nav>
+
+  <main class="mt-14">
+    <section id="location">
+      <div class="flex flex-row justify-end mx-48 gap-2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_406_1953)">
+            <path
+              d="M11.9999 0.0424805C9.35386 0.0453916 6.817 1.09776 4.94586 2.96871C3.07472 4.83966 2.0221 7.37642 2.01892 10.0225C2.01892 12.5925 4.00892 16.6145 7.93392 21.9765C8.40118 22.6166 9.01298 23.1374 9.71952 23.4964C10.4261 23.8554 11.2074 24.0425 11.9999 24.0425C12.7924 24.0425 13.5738 23.8554 14.2803 23.4964C14.9869 23.1374 15.5987 22.6166 16.0659 21.9765C19.9909 16.6145 21.9809 12.5925 21.9809 10.0225C21.9777 7.37642 20.9251 4.83966 19.054 2.96871C17.1828 1.09776 14.646 0.0453916 11.9999 0.0424805ZM11.9999 14.0005C11.2088 14.0005 10.4354 13.7659 9.77764 13.3264C9.11984 12.8868 8.60715 12.2621 8.3044 11.5312C8.00165 10.8003 7.92244 9.99605 8.07678 9.22012C8.23112 8.4442 8.61208 7.73146 9.17149 7.17205C9.7309 6.61264 10.4436 6.23168 11.2196 6.07734C11.9955 5.923 12.7998 6.00221 13.5307 6.30496C14.2616 6.60771 14.8863 7.1204 15.3258 7.7782C15.7653 8.436 15.9999 9.20936 15.9999 10.0005C15.9999 11.0613 15.5785 12.0788 14.8283 12.8289C14.0782 13.5791 13.0608 14.0005 11.9999 14.0005Z"
+              fill="#374957" />
+          </g>
+          <defs>
+            <clipPath id="clip0_406_1953">
+              <rect width="24" height="24" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <a href="#">Jakarta Utara</a>
+      </div>
+    </section>
+
+    <section id="banner" class="mt-3 justify-center items-center flex">
+      <div>
+        <img src="../assets/poster.png" alt="">
+      </div>
+    </section>
+
+    <section id="container" class="mt-5 flex-row flex justify-center gap-10 h-[500px]">
+      <!-- //Card1 -->
+      <div class="bg-white h-[300px] rounded-lg">
+        <img src="../assets/sepatu merah.jpg" alt="sepatu Olahraga" class="rounded-lg w-[200px] h-[200px]">
+        <p class="text-center font-semibold mt-2">Sepatu Olahraga</p>
+
+        <button id="showPopup" class="m-2 ml-11  p-1 bg-[#198754] text-white rounded">
+          Detail Produk
+        </button>
+
+        <div class="popup" id="popup">
+          <div class="popup-content">
+            <h2 class="text-2xl font-bold mb-2">Detail Produk</h2>
+            <div class="flex flex-row gap-3">
+              <img src="../assets/sepatu merah.jpg" alt="" class="h-[300px] w-[300px] rounded-lg">
+              <p><span class="font-bold">Detail:</span>
+                <br>
+                – Upper : Membran Mesh ,
+                TPU hot melt ,
+                Durable syhnthetic leather
+                <br>
+                – Midsole : Eco +
+                <br>
+                – Bottom : Power Grid Outsole
+                <br>
+                – Stabilizer : Xeon Frame , x-Guard , Tounge Wing
+
+                !
+              </p>
+            </div>
+            <p class="text-4xl font-extrabold mt-3">Rp1.000.000</p>
+          </div>
+          <button id="closePopup" class="mt-4 p-2 bg-red-500 text-white rounded">Close Detail</button>
+        </div>
+      </div>
+
+<!-- Card 2 -->
+      <div class="bg-white h-[300px] rounded-lg">
+        <img src="../assets/cock.jpg" alt="sepatu Olahraga" class="rounded-lg w-[200px] h-[200px]">
+        <p class="text-center font-semibold mt-2">shuttlecock</p>
+        <button id="showPopup1" class="m-2 ml-11  p-1 bg-[#198754] text-white rounded">
+          Detail Produk
+        </button>
+
+        <div class="pop" id="pop">
+          <div class="pop-content">
+            <h2 class="text-2xl font-bold mb-2">Detail Produk</h2>
+            <div class="flex flex-row gap-3">
+              <img src="../assets/cock.jpg" alt="" class="h-[300px] w-[300px] rounded-lg">
+              <p><span class="font-bold">Detail:</span>
+                <br>
+                - Shuttlecock JP Gold <br>
+                - Kok Bulutangkis <br>
+                - Stok terbaru <br>
+                - Speed 78 <br>
+                - 1 tabung isi 12 kok
+
+                </p>
+            </div>
+            <p class="text-4xl font-extrabold mt-3">Rp200.000</p>
+          </div>
+          <button id="closePopup1" class="mt-4 p-2 bg-red-500 text-white rounded">Close Detail</button>
+        </div>
+      </div>
+<!-- card 3 -->
+      <div class="bg-white h-[300px] rounded-lg">
+        <img src="../assets/rakett.jpeg" alt="sepatu Olahraga" class="rounded-lg w-[200px] h-[200px]">
+        <p class="text-center font-semibold mt-2">Raket</p>
+
+        <button id="showPopup2" class="m-2 ml-11  p-1 bg-[#198754] text-white rounded">
+          Detail Produk
+        </button>
+        <div class="pop1" id="pop1">
+          <div class="pop1-content">
+            <h2 class="text-2xl font-bold mb-2">Detail Produk</h2>
+            <div class="flex flex-row gap-3">
+              <img src="../assets/rakett.jpeg" alt="" class="h-[300px] w-[300px] rounded-lg">
+              <p><span class="font-bold">Detail:</span> <br>
+                - Dengan poros aluminium dan dengan frame aluminium <br>
+                - Memiliki bobot yang ringan <br>
+                - Ideal digunakan untuk pemula <br>
+                - Senar yang terpasang 16-18 lbs <br>
+                - Ideal Untuk: Boys, Men, Girls, Women, Senior, Junior <br>
+                - Level Bermain: Pemula <br>
+                - Bahan Tubuh: Aluminium <br>
+                - Bahan Poros: Aluminium <br>
+              </p>
+            </div>
+            <p class="text-4xl font-extrabold mt-3">Rp2.000.000</p>
+          </div>
+          <button id="closePopup2" class="mt-4 p-2 bg-red-500 text-white rounded">Close Detail</button>
+        </div>
+      </div>
+      <!-- card 4 -->
+      <div class="bg-white h-[300px] rounded-lg">
+        <img src="../assets/baju raket.jpeg" alt="sepatu Olahraga" class="rounded-lg w-[200px] h-[200px]">
+        <p class="text-center font-semibold mt-2">Jersey</p>
+        <button id="showPopup3" class="m-2 ml-11  p-1 bg-[#198754] text-white rounded">
+          Detail Produk
+        </button>
+        <div class="pop2" id="pop2">
+          <div class="pop2-content2">
+            <h2 class="text-2xl font-bold mb-2">Detail Produk</h2>
+            <div class="flex flex-row gap-3">
+              <img src="../assets/baju raket.jpeg" alt="" class="h-[300px] w-[300px] rounded-lg">
+              <p><span class="font-bold">Detail:</span> <br>
+                - Bahan = Full Dry Fit Benzema <br>
+
+                - Bahan Cetak = Print Sublimasi dengan Tinta EPSON
+              </p>
+            </div>
+            <p class="text-4xl font-extrabold mt-3">Rp500.000</p>
+          </div>
+          <button id="closePopup3" class="mt-4 p-2 bg-red-500 text-white rounded">Close Detail</button>
+        </div>
+      </div>
+    </section>
+
+  <footer>
+    <div class="w-full bg-[#198754] h-[80px] items-center justify-center">
+      <p class="font-bold text-center pt-6 text-lg">&copy;Kelompok 5</p>
+    </div>
+  </footer>
+
+
+  </main>
+
+  <script>
+    const showPopupButton = document.getElementById('showPopup');
+    const closePopupButton = document.getElementById('closePopup');
+    const popup = document.getElementById('popup');
+
+    showPopupButton.addEventListener('click', () => {
+      popup.classList.add('active');
+    });
+
+    closePopupButton.addEventListener('click', () => {
+      popup.classList.remove('active');
+    });
+    const pop = document.getElementById('pop');
+    const showPopup = document.getElementById('showPopup1').addEventListener('click', () => { pop.classList.add('active'); });
+    const closePopup = document.getElementById('closePopup1').addEventListener('click', () => {
+      pop.classList.remove('active');
+    });
+
+    const pop1 = document.getElementById('pop1');
+    const showPopup1 = document.getElementById('showPopup2').addEventListener('click', () => {
+      pop1.classList.add('active1');
+    });
+    const closePopup1 = document.getElementById('closePopup2').addEventListener('click', () => {
+      pop1.classList.remove('active1');
+    });
+
+    const pop2 = document.getElementById('pop2');
+    const showPopup2 = document.getElementById('showPopup3').addEventListener('click', () => {
+      pop2.classList.add('active2')
+    });
+    const closePopup2 = document.getElementById('closePopup3').addEventListener('click', () => {
+      pop2.classList.remove('active2')
+    });
+
+    window.onscroll = function() {menu()};
+    var xstatus = false;
+    if(document.documentElement.scrollTop <  5) {
+      document.getElementById('nav').classList.add("shadow-md");
+    } else {
+      document.getElementById('nav').classList.remove("shadow-md");
+    }
+
+  </script>
+
+</body>
+
+</html>
